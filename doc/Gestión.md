@@ -82,6 +82,7 @@ La definición de *baselines* se realizará en el formato siguiente:
  * X: cambios sustanciales en la funcionalidad.
  * Y: cambios menores en funcionalidad.
  * Z: cambios menores, no hay cambios en funcionalidad.
+ 
  *Ejemplo: Versión 2.1.3*
  
  Esto se realizará mediante las tags de git.
