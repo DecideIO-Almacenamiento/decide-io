@@ -32,10 +32,10 @@
 ## Información del proyecto
 
 ### Resumen
-El sistema decide es en una plataforma de voto electrónico que consta de varios subsistemas, en nuestro caso el subsistema elegido ha sido el de almacenamiento de votos ya encriptados, y debido a que vemos importante mejorar varios campos de este subsistema, se han propuesto 3 cambios o mejoras en él.
+El sistema decide es una plataforma de voto electrónico que consta de varios subsistemas, en nuestro caso el subsistema elegido ha sido el de almacenamiento de votos ya encriptados, y debido a que vemos importante mejorar varios campos de este subsistema se han propuesto 3 cambios o mejoras en él.
 
 ### Introducción y contexto
-El proyecto consiste en una plataforma educativa de voto electrónico que, por lo tanto, requiere de simplicidad y debe ofrecer diferentes garantía como voto electrónico seguro, la anonimicidad y el voto seguro. Además este sistema consta de varios subsistemas como:
+El proyecto consiste en una plataforma educativa de voto electrónico que, por lo tanto, requiere de simplicidad y debe ofrecer diferentes garantías como voto electrónico seguro, la anonimicidad y el voto seguro. Además, este sistema consta de varios subsistemas como:
  * Autenticación
  * Censo
  * Votaciones
@@ -45,7 +45,7 @@ El proyecto consiste en una plataforma educativa de voto electrónico que, por l
  * Post-procesado
  * Visualización de resultados
  
- En nuestro caso hemos elegido el subsistema **Almacenamiento de votos** que consiste en almacenar los votos en una base de datos en la que se tiene la relación entre votante y voto, aunque no es posible conocer la intención de voto podremos saber quién ha votado y quién no. Para el subsistema elegido también se han elegido algunas mejoras propuestas en este documento.
+ En nuestro caso, hemos elegido el subsistema **Almacenamiento de votos**, que consiste en almacenar los votos en una base de datos que contiene la relación entre votante y voto, aunque no es posible conocer la intención de voto podemos saber quién ha votado y quién no. Para el subsistema elegido también se han propuesto algunas mejoras reflejadas en este documento.
  
 ### Descripción del sistema
 ### Planificación del proyecto
@@ -91,17 +91,17 @@ https://1984.lsi.us.es/wiki-egc/images/egc/2/22/02-Decide-Install.pdf
 
 ### Gestión del cambio, incidencias y depuración
 ### Gestión del código fuente
-Para la gestión del código de las mejoras que se van a realizar al subsistema se utiliza la herramienta de *git*, que permite al equipo de desarrollo llevar a cabo la gestión de este código mediante la creación de ramas, el mergeo de ellas, la definición de *baselines* etc. Además, el repositorio se alojará en *Github* y tendrán acceso todas las personas del equipo. Actualmente el repositorio del equipo que se encargará del subsistema de almacenamiento es Decide-Io-Almacenamiento, que es un *fork* desde Decide-Io, y a su vez Decide-Io es un *fork* del repositorio original de Decide.
+Para la gestión del código de las mejoras que se van a realizar al subsistema, se utiliza la herramienta de *git*, que permite al equipo de desarrollo llevar a cabo la gestión de este código mediante la creación de ramas, el *merge* de ellas, la definición de *baselines* etc. Además, el repositorio se alojará en *Github* y tendrán acceso todas las personas del equipo. Actualmente el repositorio del equipo que se encargará del subsistema de almacenamiento es Decide-Io-Almacenamiento, que es un *fork* desde Decide-Io, a su vez Decide-Io es un *fork* del repositorio original de Decide.
 
 #### Cuándo y cómo realizar un commit
-Los *commits* deberán hacerse pronto y con asiduidad aunque de manera que no influya y bloquee a otros usuarios de la misma rama. Es decir, cada vez que se tenga un módulo funcional o un *changeset* deberá hacerse *commit* lo antes posible para que los demás usuarios tengan las posiblidad de estar actualizados. Además, a la hora de poder ver en qué momento se introdujo un error o un cambio es más sencillo si se han hecho de esta manera los *commits*.
+Los *commits* deberán hacerse pronto y con asiduidad aunque de manera que no influya y bloquee a otros usuarios de la misma rama. Es decir, cada vez que se tenga un módulo funcional o un *changeset* deberá hacerse *commit* lo antes posible para que los demás usuarios tengan la posiblidad de estar actualizados. Además, a la hora de poder ver en qué momento se introdujo un error o un cambio es más sencillo si se han hecho de esta manera los *commits* puesto que tendremos más información sobre los cambios.
 
-Los *commits* deberán tener la siguiente forma:
+Los *commits* deberán tener el siguiente formato:
 ```
 TÍTULO DEL COMMIT #ISSUE1234 (Código de incidencia si es necesario)
 ============================
 
-Descripción más detallada de los cambios
+Descripción más detallada de los cambios.
 ```
 #### Usage Model
 En este apartado se explicará de forma detallada el modo de uso de las herramientas, respondiendo a cómo se gestionan las ramas, qué permisos tienen los usuarios, cómo se hacen los merge etc.
@@ -114,7 +114,7 @@ Partiendo de que nos encontramos en el *fork* de Decide-Io-Almacenamiento, las r
  * Organizacionales: para la organización en equipos o tareas.
  * Procedimentales: para diferenciar distintas etapas del proyecto.
 
-Las ramas se mergearán a la rama de desarrollo solo y cuando funcionalidad o el motivo por el que se haya hecho se haya completado. Después de haberla mergeado y comprobar que funciona correctamente se procederá a borrar la rama en cuestión.
+Se hará *merge* de una rama cualquiera a la de desarrollo solo y cuando la funcionalidad o el motivo por el que se haya hecho haya sido completado. Después de haber realizado el *merge* y comprobar que funciona correctamente se procederá a borrar la rama en cuestión.
 
 ##### Definición de baseline
 La definición de *baselines* se realizará en el formato siguiente:
