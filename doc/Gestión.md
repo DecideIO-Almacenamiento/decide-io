@@ -54,36 +54,52 @@ El proyecto consiste en una plataforma educativa de voto electrónico que, por l
 #### Instalación Python 3.6.4
 * Instalar Python (en la carpeta c:\Python36):
   https://www.python.org/download
-En Windows, ir a Equipo (botón derecho) > Propiedades > Configuración avanzada del
+##### Añadir a la Variable de entorno del sistema PATH el intérprete de Python
+* En Windows, ir a Equipo (botón derecho) > Propiedades > Configuración avanzada del
 sistema > Variables de entorno… > En Variables del sistema Editar la variable Path
 (añadir : C:\Python36;C:\Python36\Scripts) 
 
 #### Instalación de Django
-
 * Acceder a cmd e introducir: pip install Django 
 
-#### Instalación Eclipse Oxygen http://www.eclipse.org
+#### Instalación Visual Studio Code
+https://code.visualstudio.com/docs/setup/setup-overview
 
-#### Instalación Pydev en eclipse
-**Importante: PyDev requiere Java 8 y Eclipse 4.6 (Neon) o
-superior(Oxygen) para soportar Python 2.6 o superior.**
-* Otras versiones:
-    * Eclipse 4.5, Java 8: PyDev 5.2.0
-    * Eclipse 3.8, Java 7: PyDev 4.5.5
-    * Eclipse 3.x, Java 6: PyDev 2.8.2
-* Seguir las instrucciones recogidas en:
-http://www.pydev.org/manual_101_install.html
+#### Integración Python en Visual Studio Code
+* Añadir la extensión de [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+
+#### Integración Django en Visual Studio Code https://code.visualstudio.com/docs/python/tutorial-django
+1. Abrir una consola de comandos en el directorio del proyecto Django.
+2. Ejecutar el siguiente comando en la consola para crear el entorno virtual basado en el intérprete de Python.
+ ```
+ # macOS/Linux
+ sudo apt-get install python3-venv    # If needed
+ python3 -m venv env
+ 
+ # Windows
+ python -m venv env
+ ```
+3. Abrir directorio del proyecto en Visual Studio Code.
+4. En Visual Studio Code, abrir la Paleta de Comandos (View > Command Palette o (``Ctrl+Shift+P``)). Seleccionar el comando **Python: Select Interpreter**.
+5. El comando representa una lista de intérpretes disponibles. Seleccionar el intérprete cuya carpeta comienza por ```./env``` o ```.\env``` (se corresponde con el nombre que se le dió al entorno virtual creado en el paso número 2).
+6. Ejecutar el comando **Terminal: Create New Integrated Terminal** (`` Ctrl+Shift+` ``) de la Paleta de Comandos, lo cual creará una nueva terminal y automáticamente activará el entorno virtual ejecutando su script de activación.
+ - En el caso de no activarse automáticamente, se debe activar ejecutando en un comando ```source env/bin/activate``` (Linux/macOS) o ```env\scripts\activate``` (Windows). Sabrá si el entorno está activado cuando la consola de comandos muestre **(env)** al comienzo.
+7. Instalar Django en el entorno virtual ejecutando el siguiente comando en el terminal de VS Code:
+ ```
+ python -m pip install django
+ ```
 
 #### Comprobando la instalación
-Ir a 'window > preferences' y comprobar si hay una opción PyDev.
-Configurar el intérprete de Python
-1. Ir a window > preferences > PyDev > Interpreter - Python
-2. Elegir el intérprete que hemos instalado, para ello basta pulsar Auto Config
-El Auto Config intentará encontrarlo (python.exe) en PATH, pero puede fallar.
-3. El System libs debe contener al menos los directorios Lib y Lib/site-packages.
-4. Pulsar Aceptar.
-
-Información obtenida de http://www.lsi.us.es/docencia/get.php?id=9175
+En la terminal de VS Code correspondiente a nuestro entorno virtual (aparecerá **(env)** al principio de la línea del comando) podremos comenzar a trabajar con nuestro proyecto. Para probar que todo funciona correctamente podemos intentar desplegar la aplicación:
+1. Ejecutar el comando para preparar la aplicación:
+ ```
+ python manage.py migrate
+ ```
+2. Ejecutar el comando para ejecutar el servidor de desarrollo:
+ ```
+ python manage.py runserver
+ ```
+3. Abrir en el navegador una nueva ventana en la dirección ``http://127.0.0.1:8000/`` donde ya debería aparecer la aplicación desplegada.
 
 #### Instalando decide
 En el siguiente enlace tenemos un breve tutorial de como empezar:
