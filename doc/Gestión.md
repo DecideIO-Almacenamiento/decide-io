@@ -112,13 +112,26 @@ Para la gestión del código de las mejoras que se van a realizar al subsistema,
 #### Cuándo y cómo realizar un commit
 Los *commits* deberán hacerse pronto y con asiduidad aunque de manera que no influya y bloquee a otros usuarios de la misma rama. Es decir, cada vez que se tenga un módulo funcional o un *changeset* deberá hacerse *commit* lo antes posible para que los demás usuarios tengan la posiblidad de estar actualizados. Además, a la hora de poder ver en qué momento se introdujo un error o un cambio es más sencillo si se han hecho de esta manera los *commits* puesto que tendremos más información sobre los cambios.
 
+Se seguirá una guía parecida a la convención [aquí](http://karma-runner.github.io/0.10/dev/git-commit-msg.html) descrita.
+
 Los *commits* deberán tener el siguiente formato:
 ```
-TÍTULO DEL COMMIT #ISSUE1234 (Código de incidencia si es necesario)
-============================
-
+(TIPO) TÍTULO DEL COMMIT
+(LÍNEA EN BLANCO)
 Descripción más detallada de los cambios.
+(LÍNEA EN BLANCO)
+#ISSUE1234 (Código de incidencia si es necesario)
 ```
+
+El tipo del commit puede referirse a:
+* **FEAT**: Corresponde a una nueva feature del sistema.
+* **FIX**: Corresponde a un arreglo de algún bug.
+* **DOCS**: Corresponde a creación y gestión de documentación.
+* **STYLE**: Corresponde a cambios en el estilo.
+* **REFACTOR**: Corresponde a cambios en el formato del código.
+* **TEST**: Corresponde a nuevos tests o cambios en ellos.
+* **CHORE**: Corresponde a pequeños arreglos ajenos al código o el propio sistema.
+
 #### Usage Model
 En este apartado se explicará de forma detallada el modo de uso de las herramientas, respondiendo a cómo se gestionan las ramas, qué permisos tienen los usuarios, cómo se hacen los merge etc.
 
