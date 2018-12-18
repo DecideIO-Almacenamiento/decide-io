@@ -68,7 +68,7 @@ MODULES = [
     'voting',
 ]
 
-BASEURL = 'https://decide-test-io-almacenamiento.herokuapp.com/'
+BASEURL = 'https://decide-test-io-almacenamiento.herokuapp.com'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
