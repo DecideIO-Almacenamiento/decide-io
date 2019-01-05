@@ -30,14 +30,8 @@ class StoreView(generics.ListAPIView):
         """
 
         vid = request.data.get('voting')
-        voting = mods.get('voting', params={'id': vid})
-        if not voting or not isinstance(voting, list):
-            return Response({}, status=status.HTTP_401_UNAUTHORIZED)
-        start_date = voting[0].get('start_date', None)
-        end_date = voting[0].get('end_date', None)
-        not_started = not start_date or timezone.now() < parse_datetime(start_date)
-        is_closed = end_date and parse_datetime(end_date) < timezone.now()
-        if not_started or is_closed:
+        
+        if not self.check_voting(vid):
             return Response({}, status=status.HTTP_401_UNAUTHORIZED)
 
         uid = request.data.get('voter')
@@ -48,14 +42,7 @@ class StoreView(generics.ListAPIView):
 
         # validating voter
         token = request.auth.key
-        voter = mods.post('authentication', entry_point='/getuser/', json={'token': token})
-        voter_id = voter.get('id', None)
-        if not voter_id or voter_id != uid:
-            return Response({}, status=status.HTTP_401_UNAUTHORIZED)
-
-        # the user is in the census
-        perms = mods.get('census/{}'.format(vid), params={'voter_id': uid}, response=True)
-        if perms.status_code == 401:
+        if not self.check_voter(token, uid, vid):
             return Response({}, status=status.HTTP_401_UNAUTHORIZED)
 
         a = vote.get("a")
@@ -70,3 +57,32 @@ class StoreView(generics.ListAPIView):
         v.save()
 
         return  Response({})
+
+    def check_voting(self, v_id):
+        voting = mods.get('voting', params={'id': v_id})
+        
+        if not voting or not isinstance(voting, list):
+            return False
+
+        start_date = voting[0].get('start_date', None)
+        end_date = voting[0].get('end_date', None)
+        not_started = not start_date or timezone.now() < parse_datetime(start_date)
+        is_closed = end_date and parse_datetime(end_date) < timezone.now()
+        
+        if not_started or is_closed:
+            return False
+        
+        return True
+
+    def check_voter(self, token, uid, vid):
+        voter = mods.post('authentication', entry_point='/getuser/', json={'token': token})
+        voter_id = voter.get('id', None)
+        if not voter_id or voter_id != uid:
+            return False
+
+        # the user is in the census
+        perms = mods.get('census/{}'.format(vid), params={'voter_id': uid}, response=True)
+        if perms.status_code == 401:
+            return False
+
+        return True
