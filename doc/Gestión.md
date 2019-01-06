@@ -48,9 +48,40 @@ El proyecto consiste en una plataforma educativa de voto electrónico que, por l
  En nuestro caso, hemos elegido el subsistema **Almacenamiento de votos**, que consiste en almacenar los votos en una base de datos que contiene la relación entre votante y voto, aunque no es posible conocer la intención de voto podemos saber quién ha votado y quién no. Para el subsistema elegido también se han propuesto algunas mejoras reflejadas en este documento.
  
 ### Descripción del sistema
-### Planificación del proyecto
-### Entorno de desarrollo
+La descripción del sistema se corresponde con la descrita en el proyecto de **decide**, la cual puede consultarse en los siguientes enlaces:
+* **Descripción y configuración del sistema** : https://github.com/DecideIO/decide-io/blob/master/README.md
+* **Descripción de los diferentes subsistemas** : https://github.com/DecideIO/decide-io/blob/master/doc/subsistemas.md
 
+A continuación se enumeran los cambios propuestos que se llevarán a cabo para estre proyecto:
+* **Panel de control general, con información en tiempo real sobre una votación:** 
+Para cada votación se dispondrá de un panel de control, meramente informativo en el que se podra visualizar información referente a la votación cómo: 
+  * Número de personas del censo
+  * Número de personas que han votado
+  * Porcentaje de participación
+  * Número de personas en rango de edad (< 20, 20 < 40, 40 < 60, > 60)
+  * Edad media de los votantes del censo
+  * Porcentaje de personas que han votado por rango de edad (< 20, 20 < 40, 40 < 60, > 60)
+  * Número de hombres/mujeres
+  * Porcentaje de votos de hombre/mujeres
+  * Número de personas clasificados por lugar
+  * Porcentaje de participación por lugar
+  
+* **Edición del voto por el mismo votante:**
+Durante una votación, y antes de que esta finalize, un votante podrá modificar el valor de su voto emitido.
+* **Realización de backups:**
+Se dispondrá de un sistema a través del cual se realizarán copias de seguridad de los datos almacenados por el sistema para su posterior restauración de cara a una posible pérdida de los mismos. 
+
+### Planificación del proyecto
+| Tarea         | Encargado     |
+|:-------------:|:--------------|
+| Documento de gestión     | TODO EL EQUIPO   |
+| Diario del equipo | TODO EL EQUIPO   |
+| Panel de control general    | Daniel Díaz de Mayorga Ledesma, Walabonso Viejo Álvarez |
+| Edición del voto por el mismo votante    | Pedro Pujol Orbello   |
+| Realización de backups    | Jaime Lucas Lozano, Jesús Javier Escobar Aguilera  |
+| Despliegue e integración continua |  TODO EL EQUIPO |
+
+### Entorno de desarrollo
 #### Instalación Python 3.6.4
 * Instalar Python (en la carpeta c:\Python36):
   https://www.python.org/download
@@ -105,8 +136,11 @@ En la terminal de VS Code correspondiente a nuestro entorno virtual (aparecerá 
 En el siguiente enlace tenemos un breve tutorial de como empezar:
 https://1984.lsi.us.es/wiki-egc/images/egc/2/22/02-Decide-Install.pdf
 
-### Gestión del cambio, incidencias y depuración
-### Gestión del código fuente
+### Gestión de incidencias 
+Los procesos de gestión de incidencias, tanto externas como internas, estan descritos en el siguiente documento: 
+https://github.com/DecideIO-Almacenamiento/decide-io-almacenamiento/blob/master/doc/guia_incidencias.md
+### Gestión de depuración depuración
+#### Gestión del código fuente
 Para la gestión del código de las mejoras que se van a realizar al subsistema, se utiliza la herramienta de *git*, que permite al equipo de desarrollo llevar a cabo la gestión de este código mediante la creación de ramas, el *merge* de ellas, la definición de *baselines* etc. Además, el repositorio se alojará en *Github* y tendrán acceso todas las personas del equipo. Actualmente el repositorio del equipo que se encargará del subsistema de almacenamiento es Decide-Io-Almacenamiento, que es un *fork* desde Decide-Io, a su vez Decide-Io es un *fork* del repositorio original de Decide.
 
 #### Cuándo y cómo realizar un commit
@@ -157,14 +191,6 @@ La definición de *baselines* se realizará en el formato siguiente:
 ```
 > git tag -a v1.0.0
 ```
-### Ejemplos de uso
-
-| Ejemplo       | Prueba        |
-|:-------------:|:--------------|
-| Ejemplo 1     | [prueba1]()   |
-| Ejemplo 2     | [prueba2]()   |
-| Ejemplo 3     | [prueba3]()   |
-
 ### Gestión de la construcción e integración continua
 ### Gestión de liberaciones, despliegue y entregas
 ### Mapa de herramientas
