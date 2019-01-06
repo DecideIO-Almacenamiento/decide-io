@@ -38,16 +38,18 @@ Este tipo de incidencias se usarán en casos en los que se tenga dudas sobre la 
 
 ## Gestión de incidencias
 
-El equipo de desarrollo llevará a cabo tanto la gestión de incidencias como su solución. Para poder abordar una incidencia correctamente se seguirán los siguientes pasos:
+Siempre que se abra una incidencia, **ya sea por parte interna o externa al equipo de desarrollo**, siguiendo la guía anteriormente propuesta el equipo de desarrollo comenzará con el proceso de gestión de dicha incidencia así como de su solución. Para poder abordar una incidencia correctamente se seguirán los siguientes pasos:
 
-**1. Verificación y validación:** En primer lugar, se deberá revisar y comprobar que la incidencia no es `Inválida` ni existe una versión `Duplicada` de ésta. En este caso se añadirán las correspondientes etiquetas y la incidencia se archivará.
+**1. Asignación de incidencia:** El coordinador del proyecto debe asignar como responsoble de la incidencia a algún miembro del equipo de desarrollo.
 
-**2. Análisis inicial:** Se analizará la incidencia para comprender su grado de prioridad y los roles necesarios para solucionarla. Puede darse el caso de que la incidencia no sea posible solucionarla o no sea acorde al proyecto, por lo que puede ser etiquetada como `Wontfix`. Los grados de prioridad son:
+**2. Verificación y validación:** En primer lugar, se deberá revisar y comprobar que la incidencia no es `Inválida` ni existe una versión `Duplicada` de ésta. En este caso se añadirán las correspondientes etiquetas y la incidencia se archivará.
+
+**3. Análisis inicial:** Se analizará la incidencia para comprender su grado de prioridad y los roles necesarios para solucionarla. Puede darse el caso de que la incidencia no sea posible solucionarla o no sea acorde al proyecto, por lo que puede ser etiquetada como `Wontfix`. Los grados de prioridad son:
   * **`Prioridad leve.`**
   * **`Prioridad media.`**
   * **`Prioridad alta.`**
   * **`Prioridad crítica.`**
 
-**3. Proceso de solución:** En este momento los roles asignados previamente procederán a la solución de la incidencia. En el momento de comenzar esta tarea se marcará con la etiqueta `En progreso`.
+**4. Proceso de solución:** En este momento los roles asignados previamente procederán a la solución de la incidencia. En el momento de comenzar esta tarea se marcará con la etiqueta `En progreso`.
 
-**4. Respuesta a la incidencia:** Se finalizará completando la incidencia con la solución realizada o la respuesta correspondiente a la duda. Por último se añadirá la etiqueta `Finalizada` a la incidencia.
+**5. Respuesta a la incidencia:** Se finalizará completando la incidencia con la solución realizada o la respuesta correspondiente a la duda. Por último se añadirá la etiqueta `Finalizada` a la incidencia.
