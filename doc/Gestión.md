@@ -137,8 +137,18 @@ En el siguiente enlace tenemos un breve tutorial de como empezar:
 https://1984.lsi.us.es/wiki-egc/images/egc/2/22/02-Decide-Install.pdf
 
 ### Gestión de incidencias 
-Los procesos de gestión de incidencias, tanto externas como internas, estan descritos en el siguiente documento: 
+Los procesos de gestión de incidencias, a nivel interno y desde cualquier equipo hacia el nuestro, estan descritos en el siguiente documento: 
 https://github.com/DecideIO-Almacenamiento/decide-io-almacenamiento/blob/master/doc/guia_incidencias.md
+
+El protocolo a seguir de cara a abrir nuevas incidencias a otros equipos está descrito en la sección de ducumentación de dichos equipos. En la mayoría de los casos consistira en seguir las plantillas predefinidas por los equipos. 
+
+Evidencias:
+https://github.com/DecideIO-Almacenamiento/decide-io-almacenamiento/issues/1 (Interna)
+https://github.com/DecideIO-Almacenamiento/decide-io-almacenamiento/issues/2 (Interna)
+https://github.com/DecideIO-Almacenamiento/decide-io-almacenamiento/issues/3 (Interna)
+https://github.com/EGC-DECIDE-IO-Visualizacion/decide-io/issues/3 (Externa)
+https://github.com/mansancab3/decide-io-auth/issues/4 (Externa)
+
 ### Gestión de depuración depuración
 #### Gestión del código fuente
 Para la gestión del código de las mejoras que se van a realizar al subsistema, se utiliza la herramienta de *git*, que permite al equipo de desarrollo llevar a cabo la gestión de este código mediante la creación de ramas, el *merge* de ellas, la definición de *baselines* etc. Además, el repositorio se alojará en *Github* y tendrán acceso todas las personas del equipo. Actualmente el repositorio del equipo que se encargará del subsistema de almacenamiento es Decide-Io-Almacenamiento, que es un *fork* desde Decide-Io, a su vez Decide-Io es un *fork* del repositorio original de Decide.
