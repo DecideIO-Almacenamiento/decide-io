@@ -143,11 +143,11 @@ https://github.com/DecideIO-Almacenamiento/decide-io-almacenamiento/blob/master/
 El protocolo a seguir de cara a abrir nuevas incidencias a otros equipos está descrito en la sección de ducumentación de dichos equipos. En la mayoría de los casos consistira en seguir las plantillas predefinidas por los equipos. 
 
 Evidencias:
-https://github.com/DecideIO-Almacenamiento/decide-io-almacenamiento/issues/1 (Interna)
-https://github.com/DecideIO-Almacenamiento/decide-io-almacenamiento/issues/2 (Interna)
-https://github.com/DecideIO-Almacenamiento/decide-io-almacenamiento/issues/3 (Interna)
-https://github.com/EGC-DECIDE-IO-Visualizacion/decide-io/issues/3 (Externa)
-https://github.com/mansancab3/decide-io-auth/issues/4 (Externa)
+* https://github.com/DecideIO-Almacenamiento/decide-io-almacenamiento/issues/1 (Interna)
+* https://github.com/DecideIO-Almacenamiento/decide-io-almacenamiento/issues/2 (Interna)
+* https://github.com/DecideIO-Almacenamiento/decide-io-almacenamiento/issues/3 (Interna)
+* https://github.com/EGC-DECIDE-IO-Visualizacion/decide-io/issues/3 (Externa)
+* https://github.com/mansancab3/decide-io-auth/issues/4 (Externa)
 
 ### Gestión de depuración depuración
 #### Gestión del código fuente
