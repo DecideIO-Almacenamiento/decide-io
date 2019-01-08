@@ -193,3 +193,44 @@ class StoreTextCase(BaseTestCase):
         self.voting.save()
         response = self.client.post('/store/', data, format='json')
         self.assertEqual(response.status_code, 401)
+
+    def test_modify_vote(self):
+        VOTING_PK = 603
+        CTE_A1 = 20
+        CTE_B1 = 50
+        CTE_A2 = 40
+        CTE_B2 = 90
+        census = Census(voting_id=VOTING_PK, voter_id=1)
+        census.save()
+        self.gen_voting(VOTING_PK)
+        data = {
+            "voting": VOTING_PK,
+            "voter": 1,
+            "vote": { "a": CTE_A1, "b": CTE_B1 }
+        }
+        user = self.get_or_create_user(1)
+        self.login(user=user.username)
+        response = self.client.post('/store/', data, format='json')
+        self.assertEqual(response.status_code, 200)
+
+        self.assertEqual(Vote.objects.count(), 1)
+        self.assertEqual(Vote.objects.first().voting_id, VOTING_PK)
+        self.assertEqual(Vote.objects.first().voter_id, 1)
+        self.assertEqual(Vote.objects.first().a, CTE_A1)
+        self.assertEqual(Vote.objects.first().b, CTE_B1)
+
+        self.logout()
+        data = {
+            "voting": VOTING_PK,
+            "voter": 1,
+            "vote": { "a": CTE_A2, "b": CTE_B2 }
+        }
+        self.login(user=user.username)
+        response = self.client.post('/store/', data, format='json')
+        self.assertEqual(response.status_code, 200)
+
+        self.assertEqual(Vote.objects.count(), 1)
+        self.assertEqual(Vote.objects.first().voting_id, VOTING_PK)
+        self.assertEqual(Vote.objects.first().voter_id, 1)
+        self.assertEqual(Vote.objects.first().a, CTE_A2)
+        self.assertEqual(Vote.objects.first().b, CTE_B2)
