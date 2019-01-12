@@ -204,5 +204,21 @@ La definición de *baselines* se realizará en el formato siguiente:
 ### Gestión de la construcción e integración continua
 ### Gestión de liberaciones, despliegue y entregas
 ### Mapa de herramientas
+Para el desarrollo del proyecto se han usado las siguientes herramientas:
+
+<p align="center">
+<img src="https://github.com/DecideIO-Almacenamiento/decide-io-almacenamiento/blob/master/doc/Mapa_de_herramientas.png" width="300"/>
+</p>
+
+* **Visual Studio Code:** Herramienta usada para la edición del código fuente, y sobre la cual se ha configurado un entorno de ejecución virtual para el despliegue en local. 
+* **Drive:** Herramienta usada para crear y alojar documentación referente al proyecto. 
+* **Python:** Lenguaje de programación con el que se ha implementado los nuevos cambios sobre la plataforma *decide*.
+* **Django:** Framework de desarrollo web sobre el cual se ha creado los diferentes subsistemas de *decide*.
+* **PostgreSQL**: Sistema de gestión de base de datos relacional usado por la aplicación *decide*.
+* **Git**: Sistema de control de versiones usado para la gestión del código desarrollado por el equipo. 
+* **GitHub**: Plataforma en la que se aloja el proyecto *decide*, usada como repositorio de código y documentación. Tambien es usado para la gestión de incidencias a través del sistema de *Issues*.
+* **Travis CI**: Herramienta de integración continua a través de la cual se lleva a cabo la automatización de los tests. Cada vez que se realiza un *commit* Travis se encargará de ejecutar todos los tests del proyecto y rechazarlo si es necesario. 
+* **Heroku**: Herramienta de integración continua a través de la cual se lleva a cabo la automatización del despliegue. Cada vez que se realiza un *commit* y este es validado por Travis, automáticamente se desplegaran los cambios. 
+
 ### Ejercicio de propuesta de cambio
 ### Conclusiones y trabajo futuro
