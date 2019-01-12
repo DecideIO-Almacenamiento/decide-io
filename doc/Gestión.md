@@ -221,4 +221,30 @@ Para el desarrollo del proyecto se han usado las siguientes herramientas:
 * **Heroku**: Herramienta de integración continua a través de la cual se lleva a cabo la automatización del despliegue. Cada vez que se realiza un *commit* y este es validado por Travis, automáticamente se desplegaran los cambios. 
 
 ### Ejercicio de propuesta de cambio
+
+1. Crear una incidencia (*issue*) correspondiente a la nueva funcionalidad.
+2. Clonar el repositorio en local.
+3. Crear una rama para la nueva funcionalidad desde *master*.
+4. Implementar la nueva funcionalidad.
+5. Opcional: crear incidencias con los subsistemas que tengan algún tipo de interacción con la funcionalidad (dependencias).
+6. Implementar tests de la nueva funcionalidad.
+7. Probar que todos los tests funcionan correctamente.
+8. Mergear (unir) la rama correspondiente a la funcionalidad con *master*.
+9. Comprobar que funciona la funcionalidad con los nuevos cambios de la rama *master*.
+10. Opcional: revisar las incidencias que se han adscrito en otros subsistemas y crear el *pull request* para obtener los cambios que sean necesarios.
+11. Comprobar que funciona correctamente con los nuevos cambios del *pull request*.
+12. En cuanto se de por finalizada la funcionalidad se procederá  a subir todos los cambios al repositorio principal de decide-IO
+ con el *pull request* correspondiente
+13. Comprobar que funciona correctamente con los cambios del repositorio principal.
+ 
+ Nota: siempre que se compruebe que algo no funciona correctamente se procederá a corregir lo correspondiente y volver a comprobarlo y ,en caso satisfactorio, se volverá al principio de la lista.
+ 
+
+
 ### Conclusiones y trabajo futuro
+
+Hemos aprendido a usar las herramientas de *Heroku*, *gitHub*, *Travis*, *Django* ... herramientas muy usadas en evaluación, gestión e integración continua de software. 
+
+Como trabajo futuro: seguir añadiendo funcionalidades como a nuestro subsistema.
+
+
