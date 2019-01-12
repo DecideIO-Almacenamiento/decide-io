@@ -210,10 +210,10 @@ En cuanto a travis, se ha configurado para que en cada commit se ejecuten los te
 
 Respecto a Heroku, se ha configurado para estar comunicado con travis. A traves de la configuración web de heroku se ha especificado que cualquier commit de la rama master la cual pase los tests pertinentes con travis lance un nuevo despliegue en Heroku. Existen algunos archivos de configuración en el proyecto como son:
 
--El archivo procfile, que indica las acciones que debe realizar heroku.
--El archivo runtime.txt que sirve para indicar la verisón de python que debe utilizar heroku.
--Se ha modificado requirements.txt para incluir los paquetes de django-heroku y gunicorn.
--Se ha modificado el archivo settings.py para que su funcionamiento con heroku sea el correcto.
+* El archivo procfile, que indica las acciones que debe realizar heroku.
+* El archivo runtime.txt que sirve para indicar la verisón de python que debe utilizar heroku.
+* Se ha modificado requirements.txt para incluir los paquetes de django-heroku y gunicorn.
+* Se ha modificado el archivo settings.py para que su funcionamiento con heroku sea el correcto.
 
 ### Gestión de liberaciones, despliegue y entregas
 Las liberaciones del software se realizarán siguiendo el formato especificado respecto a los commits, sus tags y tipos. Además estas liberaciones deben hacerse cuando la nueva funcionalidad o modificacion esté testeada y operativa. 
