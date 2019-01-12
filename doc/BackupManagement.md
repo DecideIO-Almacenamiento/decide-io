@@ -3,7 +3,7 @@
 - [Enlaces de interés](#enlaces-de-interés)
 - [Enlaces de interés](#backups-mediante-heroku)
   * [Realizar backups](#realizar-backups)
-  * [Realizar backups](#programar-backups)
+  * [Programar backups](#programar-backups)
   * [Restaurar la base de datos](#Restaurar-la-base-de-datos)
 ## Enlaces de interés
 ## Backups mediante Heroku
