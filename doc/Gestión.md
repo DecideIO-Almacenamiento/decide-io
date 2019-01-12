@@ -202,7 +202,26 @@ La definición de *baselines* se realizará en el formato siguiente:
 > git tag -a v1.0.0
 ```
 ### Gestión de la construcción e integración continua
+Dada la naturaleza de este proyecto, no se ha planificado ninguna gestión de la construcción, ya que al ser una aplicación web en django no hay construcción.
+
+La integración continua se ha realizado en varias partes, en la parte de realización de tests se ha usado travis y en la parte del despliegue se ha usado Heroku.
+
+En cuanto a travis, se ha configurado para que en cada commit se ejecuten los tests correspondientes. En cuanto a su configuración, en el proyecto se ha creado dos archivos: local_settings.travis.py, con el que indicamos la configuracion de django para travis, y .travis.yml que será el archivo de configuración para definir las tarear que debe realizar travis.
+
+Respecto a Heroku, se ha configurado para estar comunicado con travis. A traves de la configuración web de heroku se ha especificado que cualquier commit de la rama master la cual pase los tests pertinentes con travis lance un nuevo despliegue en Heroku. Existen algunos archivos de configuración en el proyecto como son:
+
+-El archivo procfile, que indica las acciones que debe realizar heroku.
+-El archivo runtime.txt que sirve para indicar la verisón de python que debe utilizar heroku.
+-Se ha modificado requirements.txt para incluir los paquetes de django-heroku y gunicorn.
+-Se ha modificado el archivo settings.py para que su funcionamiento con heroku sea el correcto.
+
 ### Gestión de liberaciones, despliegue y entregas
+Las liberaciones del software se realizarán siguiendo el formato especificado respecto a los commits, sus tags y tipos. Además estas liberaciones deben hacerse cuando la nueva funcionalidad o modificacion esté testeada y operativa. 
+
+Para el despliegue, este se hará con Heroku, como se ha especificado anteriormente. Siempre que se haga un commit en la rama Master y pase los tests de travis se lanzará un nuevo despliegue en dicha herramienta. 
+
+Con respecto a los entregables, estos se realizarán mediante las herramientas de github, que almacenará el codigo fuente y heroku para su despliegue.
+
 ### Mapa de herramientas
 Para el desarrollo del proyecto se han usado las siguientes herramientas:
 
