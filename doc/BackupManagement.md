@@ -8,9 +8,12 @@
   * [Restaurar la base de datos](#restaurar-la-base-de-datos)
 - [Backups en local](#backups-en-local)
   * [Configuración](#configuración)
-  * [Programar backups](#programar-backups-2)
-  * [Restaurar la base de datos](#restaurar-la-base-de-datos-2)
+  * [Programar backups](#programar-backups-1)
+  * [Restaurar la base de datos](#restaurar-la-base-de-datos-1)
 ## Enlaces de interés
+ * [Instrucciones de cómo utlizar PGBackups de Heroku](https://devcenter.heroku.com/articles/heroku-postgres-backups)
+ * [Importar y exportar](https://devcenter.heroku.com/articles/heroku-postgres-import-export)
+ * [Instalación PostgreSQL](http://www.postgresqltutorial.com/install-postgresql/)
 ## Backups mediante Heroku
 Antes de realizar cualquier acción mediante Heroku se debe descargar e instalar en local esta herramienta, tras esto, se tienen que introducir los credenciales mediante consola. Hay algunas funcionalidades que se explican a continuación que pueden variar su capacidad o amplitud dependiendo del plan que se haya adquirido en Heroku. 
 
@@ -91,7 +94,7 @@ Tras haber realizado una instalación exitosa, se deberá modificar las variable
      2. C:\Program Files\PostgreSQL\XX\bin
 
 ### Programar backups
-Para realizar los backups se ha elegido la opción de programarlos diariamente, para la realización de esta funcionalidad se deberá ejecutar el siguiente comando:
+Para realizar los *backups* se ha elegido la opción de programarlos diariamente, para la realización de esta funcionalidad se deberá ejecutar el siguiente comando:
 ```
 > schtasks/create /TN "backup decide" /TR [ruta] /SC DAILY /ST HH:mm:ss 
 ```
