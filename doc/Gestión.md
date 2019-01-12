@@ -262,8 +262,13 @@ Para el desarrollo del proyecto se han usado las siguientes herramientas:
 
 ### Conclusiones y trabajo futuro
 
-Hemos aprendido a usar las herramientas de *Heroku*, *gitHub*, *Travis*, *Django* ... herramientas muy usadas en evaluación, gestión e integración continua de software. 
+Hemos aprendido a usar las herramientas *Heroku*, *gitHub*, *Travis*, *Django* ... herramientas muy usadas en evolución, gestión e integración continua de software. 
 
-Como trabajo futuro: seguir añadiendo funcionalidades como a nuestro subsistema.
+El panel de control de estadística podría añadir más parámetros que nos sirvan de utilidad para el análisis de los resultados como moda, covarianza, etc.
+
+El *backup* es una funcionalidad útil que podría ser interesante para una aplicación final que nos permita hacer una copia de seguridad del sistema entero (todos los subsistemas).
+
+La funcionalidad de edición de votos lo vemos como algo esencial ya que incluso no nos ha supuesto muchos cambios en el sistema, por lo que, sería interesante en una aplicación final.
+
 
 
