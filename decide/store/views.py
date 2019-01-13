@@ -128,6 +128,7 @@ class StatsView(generics.ListAPIView):
         rango_entre_20_40 = 0
         rango_entre_40_60 = 0
         rango_mayor_60 = 0
+        numero_edad_nsnc = 0
         edad_total = 0
         
         # Numero de votantes por lugar
@@ -137,37 +138,60 @@ class StatsView(generics.ListAPIView):
         numero_hombres = 0
         # Numero de votantes femeninos
         numero_mujeres = 0
+        numero_sexo_nsnc = 0
 
         today = date.today()
         for census_user in census_users:
-            fecha_nacimiento = census_user.profile.fecha_nacimiento
-            edad = today.year - fecha_nacimiento.year - ((today.month, today.day) < (fecha_nacimiento.month, fecha_nacimiento.day))
+            if hasattr(census_user, 'profile'):
+                fecha_nacimiento = census_user.profile.fecha_nacimiento
+                if (fecha_nacimiento != None):
+                    edad = today.year - fecha_nacimiento.year - ((today.month, today.day) < (fecha_nacimiento.month, fecha_nacimiento.day))
 
-            edad_total += edad
+                    edad_total += edad
 
-            if edad < 20:
-                rango_menor_20 += 1
-            elif edad >= 20 and edad < 40:
-                rango_entre_20_40 += 1
-            elif edad >= 40 and edad < 60:
-                rango_entre_40_60 += 1
-            elif edad >= 60:
-                rango_mayor_60 += 1
+                    if edad < 20:
+                        rango_menor_20 += 1
+                    elif edad >= 20 and edad < 40:
+                        rango_entre_20_40 += 1
+                    elif edad >= 40 and edad < 60:
+                        rango_entre_40_60 += 1
+                    elif edad >= 60:
+                        rango_mayor_60 += 1
 
-            if census_user.profile.sexo == 'M':
-                numero_hombres += 1
-            elif census_user.profile.sexo == 'F':
-                numero_mujeres += 1
+                else:
+                    numero_edad_nsnc += 1
 
-            lugar_numero = 0
-            if census_user.profile.lugar in census_users_lugares_dict:
-                lugar_numero = census_users_lugares_dict[census_user.profile.lugar]
-            census_users_lugares_dict[census_user.profile.lugar] = lugar_numero+1
+                if (census_user.profile.sexo != None and census_user.profile.sexo != ""):
+                    if census_user.profile.sexo == 'M':
+                        numero_hombres += 1
+                    elif census_user.profile.sexo == 'F':
+                        numero_mujeres += 1
+                
+                else:
+                    numero_sexo_nsnc += 1
+
+                lugar = census_user.profile.lugar
+                if (lugar == None or lugar == ""):
+                    lugar = 'NsNc'
+                lugar_numero = 0
+                if lugar in census_users_lugares_dict:
+                    lugar_numero = census_users_lugares_dict[lugar]
+                census_users_lugares_dict[lugar] = lugar_numero+1
+
+            else:
+                numero_edad_nsnc += 1
+                numero_sexo_nsnc += 1
+                lugar = 'NsNc'
+                lugar_numero = 0
+                if lugar in census_users_lugares_dict:
+                    lugar_numero = census_users_lugares_dict[lugar]
+                census_users_lugares_dict[lugar] = lugar_numero+1
 
         votado_rango_menor_20 = 0
         votado_rango_entre_20_40 = 0
         votado_rango_entre_40_60 = 0
         votado_rango_mayor_60 = 0
+        votado_numero_edad_nsnc = 0
 
         # Porcentaje de participacion por lugar
         votes_users_lugares_dict = dict()
@@ -175,31 +199,56 @@ class StatsView(generics.ListAPIView):
         # Porcentaje de participacion por sexo
         votes_hombres = 0
         votes_mujeres = 0
+        votes_sexo_nsnc = 0
 
         for votes_user in votes_users:
-            fecha_nacimiento = votes_user.profile.fecha_nacimiento
-            edad = today.year - fecha_nacimiento.year - ((today.month, today.day) < (fecha_nacimiento.month, fecha_nacimiento.day))
+            if hasattr(votes_user, 'profile'):
+                fecha_nacimiento = votes_user.profile.fecha_nacimiento
+                if (fecha_nacimiento != None):
+                    edad = today.year - fecha_nacimiento.year - ((today.month, today.day) < (fecha_nacimiento.month, fecha_nacimiento.day))
 
-            if edad < 20:
-                votado_rango_menor_20 += 1
-            elif edad >= 20 and edad < 40:
-                votado_rango_entre_20_40 += 1
-            elif edad >= 40 and edad < 60:
-                votado_rango_entre_40_60 += 1
-            elif edad >= 60:
-                votado_rango_mayor_60 += 1
+                    if edad < 20:
+                        votado_rango_menor_20 += 1
+                    elif edad >= 20 and edad < 40:
+                        votado_rango_entre_20_40 += 1
+                    elif edad >= 40 and edad < 60:
+                        votado_rango_entre_40_60 += 1
+                    elif edad >= 60:
+                        votado_rango_mayor_60 += 1
 
-            if votes_user.profile.sexo == 'M':
-                votes_hombres += 1
-            elif votes_user.profile.sexo == 'F':
-                votes_mujeres += 1
+                else:
+                    votado_numero_edad_nsnc += 1
 
-            lugar_numero = 0
-            if votes_user.profile.lugar in votes_users_lugares_dict:
-                lugar_numero = votes_users_lugares_dict[votes_user.profile.lugar]
-            votes_users_lugares_dict[votes_user.profile.lugar] = lugar_numero+1
+                if (votes_user.profile.sexo != None and votes_user.profile.sexo != ""):
+                    if votes_user.profile.sexo == 'M':
+                        votes_hombres += 1
+                    elif votes_user.profile.sexo == 'F':
+                        votes_mujeres += 1
 
-        edad_media = edad_total/numero_personas_censo
+                else:
+                    votes_sexo_nsnc += 1
+
+                lugar = votes_user.profile.lugar
+                if (lugar == None or lugar == ""):
+                    lugar = 'NsNc'
+                lugar_numero = 0
+                if lugar in votes_users_lugares_dict:
+                    lugar_numero = votes_users_lugares_dict[lugar]
+                votes_users_lugares_dict[lugar] = lugar_numero+1
+
+            else:
+                votado_numero_edad_nsnc += 1
+                votes_sexo_nsnc += 1
+                lugar = 'NsNc'
+                lugar_numero = 0
+                if lugar in votes_users_lugares_dict:
+                    lugar_numero = votes_users_lugares_dict[lugar]
+                votes_users_lugares_dict[lugar] = lugar_numero+1
+
+        if (numero_personas_censo-numero_edad_nsnc != 0):
+            edad_media = edad_total/(numero_personas_censo-numero_edad_nsnc)
+        else:
+            edad_media = 0
 
         if (rango_menor_20 > 0):
             porcentaje_rango_menor_20 = votado_rango_menor_20/rango_menor_20
@@ -217,6 +266,10 @@ class StatsView(generics.ListAPIView):
             porcentaje_rango_mayor_60 = votado_rango_mayor_60/rango_mayor_60
         else:
             porcentaje_rango_mayor_60 = 0
+        if (numero_edad_nsnc > 0):
+            porcentaje_edad_nsnc = votado_numero_edad_nsnc/numero_edad_nsnc
+        else:
+            porcentaje_edad_nsnc = 0
 
         # Porcentaje votos sexo
         if (numero_hombres > 0):
@@ -227,6 +280,10 @@ class StatsView(generics.ListAPIView):
             porcentaje_votos_mujeres = votes_mujeres/numero_mujeres
         else:
             porcentaje_votos_mujeres = 0
+        if (numero_sexo_nsnc > 0):
+            porcentaje_sexo_nsnc = votes_sexo_nsnc/numero_sexo_nsnc
+        else:
+            porcentaje_sexo_nsnc = 0   
 
         # Porcentaje de participacion por lugar
         porcentaje_votes_users_lugares_dict = dict()
@@ -244,15 +301,19 @@ class StatsView(generics.ListAPIView):
             "rango_entre_20_40": rango_entre_20_40,
             "rango_entre_40_60": rango_entre_40_60,
             "rango_mayor_60": rango_mayor_60,
+            "numero_edad_nsnc": numero_edad_nsnc,
             "edad_media": edad_media,
             "porcentaje_rango_menor_20": porcentaje_rango_menor_20,
             "porcentaje_rango_entre_20_40": porcentaje_rango_entre_20_40,
             "porcentaje_rango_entre_40_60": porcentaje_rango_entre_40_60,
             "porcentaje_rango_mayor_60": porcentaje_rango_mayor_60,
+            "porcentaje_edad_nsnc": porcentaje_edad_nsnc,
             "numero_hombres": numero_hombres,
             "numero_mujeres": numero_mujeres,
+            "numero_sexo_nsnc": numero_sexo_nsnc,
             "porcentaje_votos_hombres": porcentaje_votos_hombres,
             "porcentaje_votos_mujeres": porcentaje_votos_mujeres,
+            "porcentaje_sexo_nsnc": porcentaje_sexo_nsnc,
             "census_users_lugares_dict": census_users_lugares_dict,
             "porcentaje_votes_users_lugares_dict": porcentaje_votes_users_lugares_dict
         }
