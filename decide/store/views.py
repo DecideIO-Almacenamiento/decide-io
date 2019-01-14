@@ -294,6 +294,7 @@ class StatsView(generics.ListAPIView):
                 porcentaje_votes_users_lugares_dict[key] = 0
 
         jsonResponse = {
+            "voting_id": voting_id,
             "numero_personas_censo": numero_personas_censo,
             "numero_personas_votado": numero_personas_votado,
             "porcentaje_participacion": porcentaje_participacion,

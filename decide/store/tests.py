@@ -260,6 +260,7 @@ class StoreTextCase(BaseTestCase):
 
         stats = json.loads(response.content)
         
+        self.assertEqual(stats['voting_id'], str(345))
         self.assertEqual(stats['numero_personas_censo'], 5)
         self.assertEqual(stats['numero_personas_votado'], 4)
         self.assertEqual(stats['porcentaje_participacion'], 0.8)
